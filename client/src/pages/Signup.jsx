@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import OAuth from "../components/OAuth";
 
 const Signup = () => {
   const [show, setShow] = useState(false);
@@ -77,6 +78,7 @@ const Signup = () => {
         >
           {loading ? "Loading.." : "Sign Up"}
         </button>
+        <OAuth />
       </form>
       <p>
         Already have an account?

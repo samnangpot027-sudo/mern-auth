@@ -7,6 +7,7 @@ import {
   signInFailure,
 } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import OAuth from "../components/OAuth";
 
 const Signin = () => {
   const [show, setShow] = useState(false);
@@ -75,6 +76,7 @@ const Signin = () => {
         >
           {loading ? "Loading.." : "Sign In"}
         </button>
+        <OAuth />
       </form>
       <p>
         Don't have an account?
