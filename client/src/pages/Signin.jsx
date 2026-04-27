@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { useEffect } from "react";
 import {
   signInStart,
   signInSuccess,
   signInFailure,
+  resetError,
 } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import OAuth from "../components/OAuth";
@@ -17,7 +19,13 @@ const Signin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // clare the error
+  useEffect(() => {
+    dispatch(resetError());
+  }, [dispatch]);
+
   const handleChange = (e) => {
+    dispatch(resetError()); // clear error
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
   const handleSubmit = async (e) => {
